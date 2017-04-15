@@ -1,7 +1,7 @@
 {
-  "name": "fb-weather-bot",
+  "name": "blstalk-stockDWinfo-fbbot",
   "version": "0.1.0",
-  "description": "Facebook bot using api.ai",
+  "description": "Facebook bot asking Stock and DW",
   "main": "webhook.js",
   "scripts": {
     "start": "nf start",
@@ -18,14 +18,15 @@
     "facebook",
     "messenger"
   ],
-  "author": "Tomomi ❤️ Imura",
-  "license": "MIT",
+  "author": "Niimble",
+  "license": "BLS",
   "dependencies": {
     "api.ai": "^1.0.3",
     "apiai": "^3.0.3",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "xml2js": ""
   },
   "bugs": {
     "url": "https://github.com/girliemac/fb-apiai-bot-simple/issues"
