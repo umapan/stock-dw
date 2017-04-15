@@ -79,15 +79,13 @@ function sendMessage(event) {
 
 /* Webhook for API.ai to get response from the 3rd party API */
 app.post('/ai', (req, res) => {
-  console.log('*** Webhook for api.ai query ***');
-  console.log(req.body.result);
-
   if (req.body.result.action === 'AskStock') {
-    console.log('*** weather ***');
     var stock_name = req.body.result.parameters['stockname'];
-    
     Stock_info(stock_name, req, res);       
 
+  } else {
+    var errorMessage = 'I failed to look up stock name.';
+    return res.status(400).json({ status: {code: 400,errorType: errorMessage}});
   }
 
 });
