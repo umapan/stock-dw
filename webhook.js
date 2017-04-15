@@ -91,12 +91,13 @@ app.post('/ai', (req, res) => {
 });
 
 function Stock_info(stock_name,req, res){
-  var cun = 0; var msg = ''; var myJSONObject = []; var msgDW = '';
-  var restUrl = 'https://google-stocks.herokuapp.com/?code=BKK:'+stock_name+'&format=json';
+  var cun = 0; var msg = ''; var callStockGOGL = []; var myJSONObject = []; var msgDW = '';
+  var restUrl = 'http://www.google.com/finance/info?nfotype=infoquoteall&q=INDEXBKK:'+stock_name+'&callback=?';
     request({url: restUrl,json: true }, function (error, response, body) {
       if (!error && response.statusCode == 200 && body[0]) {
-
-        msg = 'หุ้น ' + body[0].t + ' ราคา ' + body[0].l;
+        callStockGOGL.push(body.substring(3));
+        var result = JSON.parse(callStockGOGL);
+        msg = 'หุ้น ' + result[0].t + ' ราคา ' + result[0].l;
         return res.json({speech: msg,displayText: msg,source: 'stock_name'});
 
       }else{
