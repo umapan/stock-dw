@@ -2,11 +2,11 @@
 const PAGE_ACCESS_TOKEN = 'EAAT4LrttP0MBAOwRnSKhdseZAMOMzNokiUZC6Yp7rNttChI7bT1E6cbZAHXXuuAZBlXXbxbZBiE8RotPUCajSDU0jUIYKmfi0ZC98L20dCIT5Ja8ObdGNRNSFYmhCi2mIb04VU7lZCHstrq1WRXOAZAQb4X7B1adItPqP8zMAr9NgAZDZD';
 const APIAI_TOKEN = '6b0c4a04dc0443c580cd545733c27f07';
 
-const xml2js = require('xml2js'), parseString = xml2js.parseString;
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const apiai = require('apiai');
+const xml2js = require('xml2js');
 
 const app = express();
 app.use(bodyParser.json());
@@ -104,7 +104,7 @@ function Stock_info(stock_name,req, res){
         var dwUrl = 'http://49.231.7.202:8080/axis2/services/DWService/getDWCalculatorByFormat?secSym='+stock_name+'&format=json';
         request({url: dwUrl,json: true }, function (error, response, body) {
           if (!error && response.statusCode == 200 && body[0]) {
-            parseString(body, function (err, result) {
+            xml2js.parseString(body, function (err, result) {
               myJSONObject.push(result);
               var json = JSON.parse(myJSONObject[0]['ns:getDWCalculatorByFormatResponse']['ns:return']);
                 
