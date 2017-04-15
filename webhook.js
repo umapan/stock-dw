@@ -2,6 +2,7 @@
 const PAGE_ACCESS_TOKEN = 'EAAT4LrttP0MBAOwRnSKhdseZAMOMzNokiUZC6Yp7rNttChI7bT1E6cbZAHXXuuAZBlXXbxbZBiE8RotPUCajSDU0jUIYKmfi0ZC98L20dCIT5Ja8ObdGNRNSFYmhCi2mIb04VU7lZCHstrq1WRXOAZAQb4X7B1adItPqP8zMAr9NgAZDZD';
 const APIAI_TOKEN = '6b0c4a04dc0443c580cd545733c27f07';
 
+const xml2js = require('xml2js'), parseString = xml2js.parseString;
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
