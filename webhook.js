@@ -6,7 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const apiai = require('apiai');
-const xml2js = require('xml2js');
+var xml2js = require('xml2js');
 
 const app = express();
 app.use(bodyParser.json());
